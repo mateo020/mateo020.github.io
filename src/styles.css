@@ -30,16 +30,6 @@ nav {
     
     
 }
-
-nav ul li a {
-    transition: color 0.3s ease-in-out;
-  }
-  
-nav ul li a:hover {
-color: #ffcc00; /* Change to your preferred highlight color */
-}
-
-
 ul { 
     display: flex;
     list-style-type: none;
@@ -107,8 +97,10 @@ p{
 .subtext {
     font-size: 13px;
     font-weight: 300;
-    
     padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    margin-top: auto; /* Push the description to the bottom */
 }
 .social{
     margin: 10px;
@@ -129,31 +121,53 @@ p{
 
 .information{
     font-size: 25px;
+
 }
 .project-card {
-    position: relative;
-    width: 300px;
-    height: 500px;
+    width: 100%;
     box-shadow: 5px 5px 20px rgb(210, 210, 210);
-    overflow: hidden; /* Hide overflow to hide expanded content */
-}
-
-
-.project-card:hover .project-details {
-transform: translateY(0); /* Expand content on hover */
-}
-
-
-.project-description {
-padding: 10px;
-margin: 0;
-font-size: 13px;
-font-weight: 300;
-text-align: left;
-}
-
-.project-container{
+    overflow: hidden;
+    position: relative;
+    transition: height 0.3s ease-in-out;
     display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    height: auto; /* Expand height on hover */
+}
+
+.project-card:hover .subtext {
+    opacity: 1; /* Make the description visible on hover */
+}
+
+.project-link {
+    text-decoration: none;
+    color: rgb(224, 119, 81);
+}
+
+
+.subtext {
+    font-size: 13px;
+    font-weight: 300;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    margin-top: auto; /* Push the description to the bottom */
+}
+
+
+.github-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Adjust the gap between project cards */
     justify-content: space-around;
 }
 
@@ -162,15 +176,14 @@ text-align: left;
     .project-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between; 
     }
 }
 
-
-.project-image{
-    margin-top: 25px;
-    width: 250px;
-    border-radius: 150px;
+.project-image {
+    margin-top: 15px; /* Reduce the top margin for the image */
+    width: 100%;
+    max-height: 150px; /* Limit the maximum height of the image */
+    object-fit: cover; /* Maintain aspect ratio for the image */
 }
 
 .project-link{
