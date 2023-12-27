@@ -30,6 +30,16 @@ nav {
     
     
 }
+
+nav ul li a {
+    transition: color 0.3s ease-in-out;
+  }
+  
+nav ul li a:hover {
+color: #ffcc00; /* Change to your preferred highlight color */
+}
+
+
 ul { 
     display: flex;
     list-style-type: none;
